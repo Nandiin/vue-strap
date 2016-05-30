@@ -24,8 +24,8 @@
         </slot>
         <slot name="modal-footer">
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" @click="close">{{ cancelText }}</button>
-            <button type="button" class="btn btn-primary" @click="callback">{{ okText }}</button>
+            <button type="button" class="btn {{ cancelClass }}" @click="close">{{ cancelText }}</button>
+            <button type="button" class="btn {{ okClass }}" @click="callback">{{ okText }}</button>
           </div>
         </slot>
       </div>
@@ -44,9 +44,17 @@ import coerceBoolean from './utils/coerceBoolean.js'
         type: String,
         default: 'Save changes'
       },
+      okClass: {
+        type: String,
+        default: 'btn-primary'
+      },
       cancelText:{
         type: String,
         default: 'Close'
+      },
+      cancelClass: {
+        type: String,
+        default: 'btn-default'
       },
       title: {
         type: String,
